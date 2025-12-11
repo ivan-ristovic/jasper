@@ -1,0 +1,20 @@
+#!/bin/bash
+
+if [ -z "$GRAALVM_HOME" ]; then
+    echo "GRAALVM_HOME not set"
+    exit 1
+fi
+
+export JAVA_HOME="$GRAALVM_HOME"
+
+mvn compile
+
+# Run on Java
+# export MAVEN_OPTS="-Xmx14000m"
+# mvn exec:java -Dexec.mainClass="net.ristovic.benchmarks.nlp.Main"
+
+# Generate a native image
+mvn package -Pinstrumented
+./target/stanfordnlp-preload-instr $@
+mvn package -Poptimised
+

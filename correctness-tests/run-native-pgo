@@ -1,0 +1,3 @@
+#!/bin/bash
+
+./target/correctness-tests-opt $@
