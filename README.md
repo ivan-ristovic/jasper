@@ -1,4 +1,4 @@
-# CNSD Bench
+# JASPER: Cloud-Native Java Serializer Performance Evaluation fRamework
 
 This repository contains tools and benchmarks for evaluating the performance of a S/D library in a cloud-native environment.
 Benchmarks are written in Java and are available both in JIT and AOT modes. For AOT mode, benchmarks are compiled ahead-of-time using GraalVM.
