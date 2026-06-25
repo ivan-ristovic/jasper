@@ -23,8 +23,8 @@ public final class SizeEstimator {
 
         for (String serTag : serializers) {
             Serializer serializer = Serializers.fromTag(serTag);
-            serializer.register(Data.CLASSES);
             for (String objTag : tags) {
+                serializer.register(Data.classesForTag(objTag));
                 Object obj = Data.createDataObject(objTag); 
                 long size = serializer.sizeOf(obj);
                 System.out.println(serTag + "\t" + objTag + "\t\\num{" + size + "}");

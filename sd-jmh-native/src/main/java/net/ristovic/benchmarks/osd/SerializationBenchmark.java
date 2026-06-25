@@ -334,7 +334,7 @@ public class SerializationBenchmark {
         Data.setRng(new Random(seed == 0 ? System.nanoTime() : seed));
         obj = Data.createDataObject(objTag); 
         serializer = Serializers.fromTag(serTag);
-        serializer.register(Data.CLASSES);
+        serializer.register(Data.classesForTag(objTag));
     }
 
     @Setup(Level.Invocation)

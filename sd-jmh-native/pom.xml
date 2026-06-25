@@ -114,6 +114,13 @@ THE POSSIBILITY OF SUCH DAMAGE.
           <version>2.0.2</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.10.2</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -187,6 +194,13 @@ THE POSSIBILITY OF SUCH DAMAGE.
                         <classpath/>
                         <argument>org.openjdk.jmh.Main</argument>
                     </arguments>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M5</version>
+                <configuration>
+                    <argLine>--add-opens=java.base/java.util=ALL-UNNAMED</argLine>
                 </configuration>
             </plugin>
         </plugins>
