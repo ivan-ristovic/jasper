@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JASPER Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>JASPER</h1>
+        <p>Java serializer performance dashboard</p>
+      </div>
+      <div class="top-actions">
+        <button id="envToggle" class="secondary" type="button" aria-expanded="false" aria-controls="envStrip">Show environment</button>
+        <div id="serverInfo" class="server-info">Connecting...</div>
+      </div>
+    </header>
+
+    <section class="env-strip collapsed" id="envStrip" hidden></section>
+
+    <main class="workspace">
+      <section class="panel action-panel" aria-label="JASPER actions">
+        <div class="panel-title">
+          <h2>Actions</h2>
+          <span id="actionCount">0</span>
+        </div>
+        <div id="actionList" class="action-list"></div>
+      </section>
+
+      <section class="panel config-panel" aria-label="Run configuration">
+        <div class="panel-title">
+          <h2 id="selectedTitle">Select an action</h2>
+          <span id="selectedReady" class="status neutral">idle</span>
+        </div>
+        <p id="selectedDescription" class="description">Choose a JASPER action to configure a run.</p>
+        <div id="requirementList" class="requirements"></div>
+        <form id="runForm" class="run-form"></form>
+        <div class="form-actions">
+          <button id="runButton" class="primary" type="button" disabled>Run action</button>
+          <p id="formMessage" class="form-message"></p>
+        </div>
+
+        <div class="queue-section">
+          <div class="panel-title compact">
+            <h2>Queue</h2>
+            <span id="queueCount">0</span>
+          </div>
+          <div id="currentJob" class="current-job empty">No active job</div>
+          <div id="queueList" class="queue-list"></div>
+        </div>
+      </section>
+
+      <section class="panel log-panel" aria-label="Logs and run history">
+        <div class="panel-title">
+          <h2>Logs</h2>
+          <button id="cancelButton" class="secondary" type="button" disabled>Cancel</button>
+        </div>
+        <pre id="logOutput" class="log-output">Select a run to view logs.</pre>
+        <div class="panel-title compact">
+          <h2>History</h2>
+          <span id="historyCount">0</span>
+        </div>
+        <div id="historyList" class="history-list"></div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
