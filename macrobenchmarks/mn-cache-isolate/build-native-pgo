@@ -1,0 +1,79 @@
+#!/bin/bash
+
+set -euo pipefail
+
+if [ -z "${GRAALVM_HOME:-}" ]; then
+    echo "GRAALVM_HOME not set"
+    exit 1
+fi
+
+export JAVA_HOME="$GRAALVM_HOME"
+
+profile="default.iprof"
+instrumented_pid=""
+
+shutdown_instrumented() {
+    if [ -n "$instrumented_pid" ] && kill -0 "$instrumented_pid" 2>/dev/null; then
+        kill "$instrumented_pid" 2>/dev/null || true
+        wait "$instrumented_pid" 2>/dev/null || true
+    fi
+}
+
+trap shutdown_instrumented EXIT
+
+# clean up old profiles
+rm -rf ./src/pgo-profiles/
+rm -f "$profile"
+
+# instrumented run
+./gradlew nativeCompile --pgo-instrument
+./build/native/nativeCompile/mn-cache-isolate-instrumented --isolates 16 &
+instrumented_pid=$!
+
+# Wait until all isolates accept requests before collecting profile traffic.
+for i in {0..15}; do
+    port=$((8080+i))
+    ready="n"
+    for _ in {1..60}; do
+        if timeout 2s curl --silent --fail "http://localhost:$port/1" > /dev/null; then
+            ready="y"
+            break
+        fi
+        sleep 1
+    done
+    if [ "$ready" != "y" ]; then
+        echo "Timed out waiting for isolate on port $port"
+        exit 1
+    fi
+done
+
+# perform requests to all isolates
+for i in {0..15}; do
+    port=$((8080+i))
+    for j in {1..12}; do
+        timeout 5s curl --silent --fail "http://localhost:$port/$j" > /dev/null
+    done
+done
+
+# shutdown and wait for the instrumented binary to flush the PGO profile
+shutdown_instrumented
+instrumented_pid=""
+
+for _ in {1..30}; do
+    if [ -f "$profile" ]; then
+        break
+    fi
+    sleep 1
+done
+
+if [ ! -f "$profile" ]; then
+    echo "PGO profile $profile was not generated"
+    exit 1
+fi
+
+# copy generated profiles for an optimized build
+mkdir -p src/pgo-profiles/main
+mv "$profile" ./src/pgo-profiles/main/
+
+# pgo build
+./gradlew nativeCompile

@@ -1,0 +1,18 @@
+{
+  "name": "jasper",
+  "version": "0.1.0",
+  "private": true,
+  "description": "JASPER benchmark control service, CLI, and WebUI.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js serve",
+    "screenshots": "node scripts/capture-screenshots.js",
+    "verify:full": "node scripts/verify-full.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ $# -ne 1 ]; then
+    echo "missing arg: output dir"
+    exit 1
+fi
+
+set -xe;
+
+mvn package
+
+export LD_LIBRARY_PATH="$GRAALVM_HOME/lib"
+java --add-opens java.base/java.util=ALL-UNNAMED -agentlib:native-image-agent=config-output-dir="$1",experimental-class-define-support -jar ./target/core-tests.jar

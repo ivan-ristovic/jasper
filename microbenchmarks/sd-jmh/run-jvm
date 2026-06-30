@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ -z "$GRAALVM_HOME" ]; then
+    echo "GRAALVM_HOME not set"
+    exit 1
+fi
+
+export JAVA_HOME="$GRAALVM_HOME"
+
+./mvnw package
+"$JAVA_HOME/bin/java" -XX:+UnlockExperimentalVMOptions -XX:-UseJVMCICompiler -jar ./target/benchmarks.jar "$@"

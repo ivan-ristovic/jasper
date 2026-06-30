@@ -1,0 +1,105 @@
+[
+  {
+    "name": "java.lang.String",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "java.lang.Boolean",
+    "methods": [
+      {
+        "name": "valueOf",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "<init>",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "java.lang.Integer",
+    "methods": [
+      {
+        "name": "valueOf",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "<init>",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "net.ristovic.jasper.micro.sdjmh.jmh_generated.SerializationBenchmark_benchmarkD_jmhTest",
+    "allDeclaredConstructors": true,
+    "allDeclaredMethods": true
+  },
+  {
+    "name": "net.ristovic.jasper.micro.sdjmh.jmh_generated.SerializationBenchmark_benchmarkS_jmhTest",
+    "allDeclaredConstructors": true,
+    "allDeclaredMethods": true
+  },
+  {
+    "name": "net.ristovic.jasper.micro.sdjmh.jmh_generated.SerializationBenchmark_jmhType",
+    "allDeclaredConstructors": true,
+    "allDeclaredMethods": true,
+    "allDeclaredFields": true
+  },
+  {
+    "name": "net.ristovic.jasper.micro.sdjmh.jmh_generated.SerializationBenchmark_jmhType_B1",
+    "allDeclaredConstructors": true,
+    "allDeclaredMethods": true,
+    "allDeclaredFields": true
+  },
+  {
+    "name": "net.ristovic.jasper.micro.sdjmh.jmh_generated.SerializationBenchmark_jmhType_B2",
+    "allDeclaredConstructors": true,
+    "allDeclaredMethods": true,
+    "allDeclaredFields": true
+  },
+  {
+    "name": "net.ristovic.jasper.micro.sdjmh.jmh_generated.SerializationBenchmark_jmhType_B3",
+    "allDeclaredConstructors": true,
+    "allDeclaredMethods": true,
+    "allDeclaredFields": true
+  },
+  {
+    "name": "org.openjdk.jmh.runner.options.TimeValue",
+    "methods": [
+      {
+        "name": "valueOf",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "fromString",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "<init>",
+        "parameterTypes": [
+          "long",
+          "java.util.concurrent.TimeUnit"
+        ]
+      }
+    ]
+  }
+]

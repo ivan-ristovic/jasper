@@ -1,0 +1,12 @@
+{
+  "resources": {
+    "includes": [
+      {
+        "pattern": "\\QMETA-INF/BenchmarkList\\E"
+      },
+      {
+        "pattern": "\\QMETA-INF/CompilerHints\\E"
+      }
+    ]
+  }
+}

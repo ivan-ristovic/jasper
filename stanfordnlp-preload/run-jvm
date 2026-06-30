@@ -1,5 +1,0 @@
-#!/bin/bash
-
-export MAVEN_OPTS="-Xmx14000m"
-./mvnw exec:java -Dexec.mainClass="net.ristovic.benchmarks.nlp.Main"
-
