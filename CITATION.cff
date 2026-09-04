@@ -1,0 +1,45 @@
+cff-version: 1.2.0
+title: "JASPER: An extensible benchmarking framework for JVM data serializers"
+type: software
+
+message: "If you use Jasper in your research, please cite this software."
+
+abstract: >
+  Jasper is an extensible benchmarking framework for systematically evaluating
+  data serializers in modern JVM-based cloud-native environments. It combines
+  correctness and robustness testing, serializer microbenchmarks, POSIX-level
+  memory-operation baselines, and cloud-native macrobenchmarks based on web API
+  and NLP workloads. The framework supports widely used JVM serializers,
+  including Java serialization, dsljson, Jackson, GraalDoss, Gson, fastjson2,
+  and Kryo. Its modular architecture, extensible workload generator,
+  command-line client, and web dashboard enable reproducible local and remote
+  experiments and facilitate comparisons of serialization technologies under
+  different experimental conditions.
+
+keywords:
+  - benchmarking
+  - data serialization
+  - JVM
+  - cloud-native
+  - Java
+  - serialization performance
+  - memory behavior
+  - microbenchmarks
+  - macrobenchmarks
+  - reproducible research
+
+authors:
+  - family-names: "Ristovic"
+    given-names: "Ivan"
+
+repository-code: "https://github.com/ivan-ristovic/jasper"
+url: "https://github.com/ivan-ristovic/jasper"
+
+license: "MIT"
+
+version: "1.0.0"
+date-released: "2026-09-04"
+
+# Add the DOI if the software has been archived through Zenodo or another
+# DOI-issuing repository.
+# doi: "https://doi.org/10.5281/zenodo.16535565"
