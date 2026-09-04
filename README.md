@@ -59,4 +59,26 @@ The root `jasper` control script provides a queued CLI and WebUI over the same b
 ./jasper run sd-jmh-run-jvm --arg benchmarkFilter=SerializationBenchmark --arg warmupIterations=1 --arg iterations=1
 ```
 
+## Citing
+
+```
+@misc{jasper,
+  author       = {Ristovi{\'c}, Ivan and Vujo{\v{s}}evi{\'c}, Jani{\v{c}}i{\'c}, Milena},
+  title        = {{JASPER: Cloud-Native JVM Serializer Performance Evaluation Framework}},
+  year         = {2025},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.16535566},
+  howpublished = {\url{https://doi.org/10.5281/zenodo.16535565}},
+  note         = {Version v1; concept DOI: \url{https://doi.org/10.5281/zenodo.16535565}; Accessed at: 2026-06-28}
+}
+
+@misc{jasperGitHub,
+  author       = {Ristovi{\'c}, Ivan},
+  title        = {JASPER: Cloud-Native Java Serializer Performance Evaluation fRamework},
+  year         = {2025},
+  howpublished = {\url{https://github.com/ivan-ristovic/jasper}},
+  note         = {Accessed at: 2026-06-28}
+}
+```
+
 `jasper serve` binds to `127.0.0.1` and stores runtime metadata/logs in `.jasper/`. For remote runs, start `jasper serve` on the benchmark machine and connect through SSH port forwarding.
