@@ -59,6 +59,8 @@ The root `jasper` control script provides a queued CLI and WebUI over the same b
 ./jasper run sd-jmh-run-jvm --arg benchmarkFilter=SerializationBenchmark --arg warmupIterations=1 --arg iterations=1
 ```
 
+`jasper serve` binds to `127.0.0.1` and stores runtime metadata/logs in `.jasper/`. For remote runs, start `jasper serve` on the benchmark machine and connect through SSH port forwarding.
+
 ## Citing
 
 ```
@@ -80,5 +82,3 @@ The root `jasper` control script provides a queued CLI and WebUI over the same b
   note         = {Accessed at: 2026-06-28}
 }
 ```
-
-`jasper serve` binds to `127.0.0.1` and stores runtime metadata/logs in `.jasper/`. For remote runs, start `jasper serve` on the benchmark machine and connect through SSH port forwarding.
