@@ -1,5 +1,7 @@
 # JASPER: Cloud-Native Java Serializer Performance Evaluation fRamework
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21063669.svg)](https://doi.org/10.5281/zenodo.21063669)
+
 This repository contains tools and benchmarks for evaluating the performance of a S/D library in a cloud-native environment.
 Benchmarks are written in Java and are available both in JIT and AOT modes. For AOT mode, benchmarks are compiled ahead-of-time using GraalVM.
 
